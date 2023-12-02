@@ -3,8 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import { userContext } from "../context/userProvider";
 import { useParams } from "react-router-dom";
-import StarRating from "../components/Evaluation/StarRating";
 import EvaluationForm from "../components/Evaluation/EvaluationForm";
+import Evaluations from "../components/Evaluation/Evaluations";
 
 const SingleProfessor = () => {
   const { user } = useContext(userContext);
@@ -49,49 +49,8 @@ const SingleProfessor = () => {
             {/* Evaluations */}
             <div className="mb-6">
               <h2 className="text-lg font-semibold mb-2">Evaluations</h2>
-              {professor.evaluations.map((evaluation) => (
-                <div key={evaluation.id} className="mb-4 border p-4 rounded">
-                  <p>
-                    Attitude in class:{" "}
-                    <StarRating value={evaluation.attitude} />
-                  </p>
-                  <p>
-                    Approach to the material:{" "}
-                    <StarRating value={evaluation.approach} />
-                  </p>
-                  <p>
-                    Style of teaching: <StarRating value={evaluation.style} />
-                  </p>
-                  <p>
-                    The course: <StarRating value={evaluation.course} />
-                  </p>
-                  <p>
-                    Extra work: <StarRating value={evaluation.extraWork} />
-                  </p>
-                  <p>
-                    TP / TD: <StarRating value={evaluation.tp_td} />
-                  </p>
-                  <p>
-                    Exam: <StarRating value={evaluation.exam} />
-                  </p>
-                  <p>
-                    Average Rating:{" "}
-                    <StarRating
-                      value={
-                        (evaluation.attitude +
-                          evaluation.approach +
-                          evaluation.style +
-                          evaluation.extraWork +
-                          evaluation.tp_td +
-                          evaluation.exam) /
-                        6
-                      }
-                    />
-                  </p>
-                  {/* Add other evaluation details as needed */}
-                  <p>Comment: {evaluation.comment}</p>
-                  <p>Student Email: {evaluation.studentEmail}</p>
-                </div>
+              {professor.evaluations.map((evaluation, index) => (
+                <Evaluations key={index} evaluation={evaluation} />
               ))}
             </div>
           </div>

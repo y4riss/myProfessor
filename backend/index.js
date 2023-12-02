@@ -45,6 +45,49 @@ app.post("/eval", async (req, res) => {
     return res.status(500).json({ error });
   }
 });
+
+app.get("/student/:email", async(req,res)=>{
+
+  const email = req.params.email;
+
+  try {
+      const student = await prisma.student.findUnique({
+        where : {
+          email: email
+        },
+        include : {
+          evaluations :{
+            include:{
+              teacher : true,
+            }
+          }
+        }
+      })
+      return res.json(student);
+  } catch (error) {
+    return res.status(500).json(error)
+  }
+})
+app.post("/student", async (req, res) => {
+  const body = req.body;
+  try {
+    let student = await prisma.student.findUnique({
+      where: {
+        email: body.email,
+      },
+    });
+    if (!student) {
+      student = await prisma.student.create({
+        data: {
+          email: body.email,
+        },
+      });
+    }
+    return res.json(student);
+  } catch (error) {
+    return res.status(500).json({ error });
+  }
+});
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
 });

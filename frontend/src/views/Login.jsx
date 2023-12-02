@@ -10,7 +10,18 @@ const Login = ({ signInBtn }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const addStudent = async () => {
+      await fetch("http://localhost:3000/student", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+    };
+
     if (user) {
+      addStudent();
       navigate("/");
     }
   }, [user]);

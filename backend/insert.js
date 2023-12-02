@@ -77,6 +77,36 @@ const evaluationsData = [
   ...generateTeacherEvaluations(9, "william.adams@example.com", 1),
 ];
 
+const students = [
+  {
+    email: "john.doe@example.com",
+  },
+  {
+    email: "jane.smith@example.com",
+  },
+  {
+    email: "michael.johnson@example.com",
+  },
+  {
+    email: "emily.davis@example.com",
+  },
+  {
+    email: "daniel.brown@example.com",
+  },
+  {
+    email: "olivia.white@example.com",
+  },
+  {
+    email: "christopher.lee@example.com",
+  },
+  {
+    email: "sophia.wilson@example.com",
+  },
+  {
+    email: "william.adams@example.com",
+  },
+];
+
 function generateTeacherEvaluations(teacherId, studentEmail, count) {
   const evaluations = [];
   for (let i = 0; i < count; i++) {
@@ -101,8 +131,9 @@ function getRandomRating() {
 }
 
 async function main() {
-  await prisma.teacher.deleteMany();
   await prisma.evaluation.deleteMany();
+  await prisma.teacher.deleteMany();
+  await prisma.student.deleteMany();
   let index = 1;
   for (const teacherData of teachersData) {
     await prisma.teacher.create({
@@ -110,12 +141,21 @@ async function main() {
     });
     index++;
   }
+  index = 1;
+  console.log("Teachers inserted.");
+  for (const student of students) {
+    await prisma.student.create({
+      data: { ...student, id: index },
+    });
+    index++;
+  }
+  console.log("Students inserted.");
   for (const eval of evaluationsData) {
     await prisma.evaluation.create({
       data: eval,
     });
   }
-  console.log("data inserted sucessfully");
+  console.log("Evaluations inserted.");
 }
 
 main()
