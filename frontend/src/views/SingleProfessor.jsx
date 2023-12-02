@@ -97,7 +97,7 @@ const SingleProfessor = () => {
           </div>
         </div>
       )}
-      <EvaluationForm />
+      <EvaluationForm teacherId={id} />
     </div>
   );
 };

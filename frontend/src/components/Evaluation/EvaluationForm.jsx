@@ -1,7 +1,10 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useContext, useState } from "react";
 import StarSelector from "./StarSelector";
+import { userContext } from "../../context/userProvider";
 
-const EvaluationForm = () => {
+const EvaluationForm = ({ teacherId }) => {
+  const { user } = useContext(userContext);
   const [formValues, setFormValues] = useState({
     attitude: 0,
     approach: 0,
@@ -17,9 +20,26 @@ const EvaluationForm = () => {
     setComment(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formValues);
+    const data = {
+      ...formValues,
+      comment,
+      studentEmail: user.email,
+      teacherId: teacherId,
+    };
+
+    const res = await fetch("http://localhost:3000/eval", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json();
+
+    console.log(json);
+    alert("Your evaluation has been submitted sucessfully");
   };
 
   const handleClick = (e, field, index) => {
@@ -42,7 +62,7 @@ const EvaluationForm = () => {
           {Object.keys(formValues).map((field, index) => (
             <div
               key={field}
-              className="mb-4  flex gap-2 items-baseline justify-between w-52 p-2"
+              className="mb-4  flex gap-2 items-baseline justify-between w-56 p-2"
             >
               <label className="block mb-2">
                 {field.charAt(0).toUpperCase() + field.slice(1)}

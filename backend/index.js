@@ -33,6 +33,18 @@ app.get("/professors/:id", async (req, res) => {
     return res.status(500).json({ error });
   }
 });
+
+app.post("/eval", async (req, res) => {
+  const body = req.body;
+  try {
+    const evaluation = await prisma.evaluation.create({
+      data: body,
+    });
+    return res.json(evaluation);
+  } catch (error) {
+    return res.status(500).json({ error });
+  }
+});
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
 });
