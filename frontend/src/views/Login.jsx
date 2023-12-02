@@ -13,7 +13,7 @@ const Login = ({ signInBtn }) => {
     if (user) {
       navigate("/");
     }
-  });
+  }, [user]);
   return (
     <div className="flex h-screen items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md">

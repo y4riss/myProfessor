@@ -11,11 +11,12 @@ const Home = () => {
     if (!user) {
       navigate("/login");
     }
-  });
+  },[]);
 
   return (
     <div>
       <Navbar />
+      <div>Home page</div>
     </div>
   );
 };

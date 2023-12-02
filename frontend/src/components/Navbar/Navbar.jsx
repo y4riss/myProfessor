@@ -23,6 +23,7 @@ const Navbar = () => {
                 src={user.picture}
                 alt="User Profile"
                 className="rounded-full w-8 h-8"
+                referrerPolicy="no-referrer"
               />
               <p className="mr-2">{user.name}</p>
             </div>

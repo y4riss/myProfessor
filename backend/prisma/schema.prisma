@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// schema.prisma
+
+// Define the Teacher model
+model Teacher {
+  id          Int          @id @default(autoincrement())
+  name        String
+  email       String       @unique
+  image       String       @default("user.jpg")
+  description String
+  startYear   DateTime
+  evaluations Evaluation[]
+  // Add any other relevant fields for teachers
+}
+
+// Define the Evaluation model
+model Evaluation {
+  id           Int     @id @default(autoincrement())
+  attitude     Int
+  approach     Int
+  style        Int
+  course       Int
+  extraWork    Int
+  tp_td        Int
+  exam         Int
+  comment      String?
+  studentEmail String // Assuming studentId is the Google account identifier
+  teacher      Teacher @relation(fields: [teacherId], references: [id])
+  teacherId    Int
+  // Add any other relevant fields for evaluations
+}

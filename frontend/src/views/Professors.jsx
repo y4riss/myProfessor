@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useContext, useEffect, useState } from "react";
 import { userContext } from "../context/userProvider";
 import Professor from "../components/Professor/Professor";
@@ -11,7 +12,7 @@ const Professors = () => {
 
   useEffect(() => {
     const getProfessors = async () => {
-      const res = await fetch("http://localhost:9999/professors");
+      const res = await fetch("http://localhost:3000/professors");
       const data = await res.json();
       setProfessors(data);
     };
@@ -19,7 +20,7 @@ const Professors = () => {
   }, []);
 
   if (!user) {
-    window.location.href = "/login";
+    return <div>Only ensem's students can access this page</div>;
   }
 
   return (

@@ -5,6 +5,8 @@ import Professors from "./views/Professors";
 import Home from "./views/Home";
 import { userContext } from "./context/userProvider";
 import Login from "./views/Login";
+import About from "./views/About";
+import SingleProfessor from "./views/SingleProfessor";
 
 const App = () => {
   const { setUser } = useContext(userContext);
@@ -43,6 +45,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login signInBtn={signInBtn} />} />
           <Route path="/professors" element={<Professors />} />
+          <Route path="/professors/:id" element={<SingleProfessor />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
     </div>
