@@ -30,7 +30,7 @@ const SingleProfessor = () => {
       {professor && (
         <div>
           <div className="max-w-xl mx-auto p-4">
-            <img src={`/${professor.image}`} alt="img" width={200} />
+            <img src={`/imgs/${professor.image}`} alt="img" width={200} />
             <h1 className="text-2xl font-bold mb-4">{professor.name}</h1>
             <p className="mb-4">{professor.description}</p>
 
