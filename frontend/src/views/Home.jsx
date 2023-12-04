@@ -28,6 +28,7 @@ const Home = () => {
             performance and fosters a culture of continuous improvement in our
             school community"
           btn={"Give your feedback now !"}
+          bg="custom-bg"
         />
       </div>
       <Footer />

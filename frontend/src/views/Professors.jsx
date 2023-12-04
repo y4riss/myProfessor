@@ -37,9 +37,12 @@ const Professors = () => {
         }
         img="/imgs/header2.jpg"
         btn=""
+        bg="custom-bg"
       />
       <div className="h-64 p-4 bg-black my-4 w-full dark-div flex items-center justify-center">
-        <h1 className="text-white text-7xl font-bold text-center" >Professors Section</h1>
+        <h1 className="text-white text-7xl font-bold text-center">
+          Professors Section
+        </h1>
       </div>
       <div className="flex">
         <div className="search w-fit  p-4">
