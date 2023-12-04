@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import { userContext } from "../context/userProvider";
 import Evaluations from "../components/Evaluation/Evaluations";
+import { Link } from "react-router-dom";
+import Footer from "../components/Footer/Footer";
 
 const MyEvaluations = () => {
   const { user } = useContext(userContext);
@@ -29,12 +31,24 @@ const MyEvaluations = () => {
       <h1>Your evaluations : </h1>
 
       {student && (
-        <div>
+        <div className="">
+          <div className="text-lg font-semibold  dark-div  w-full flex items-center justify-center p-10">
+            <h1 className="font-bold text-6xl text-white ">Your Reviews</h1>
+          </div>
+          {!student.evaluations.length && (
+            <div className="h-screen flex align-middle items-center justify-center text-6xl flex-col gap-10">
+              No reviews yet.
+              <Link to="/professors" className="btn btn-primary btn-lg">
+                Review now !
+              </Link>
+            </div>
+          )}
           {student.evaluations.map((evaluation, index) => (
             <Evaluations key={index} evaluation={evaluation} />
           ))}
         </div>
       )}
+      <Footer />
     </div>
   );
 };

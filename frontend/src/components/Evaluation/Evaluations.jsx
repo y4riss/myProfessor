@@ -10,10 +10,23 @@ const Evaluations = ({ evaluation }) => {
     <div>
       <div className="mb-4 border p-4 rounded max-w-[350px] mx-auto my-10 custom-bg">
         {evaluation.teacher && (
-          <div>
-            <p className="flex">
-              Professor evaluated : {evaluation.teacher.name}
-            </p>
+          <div className="mb-4">
+            <div className="flex align-middle items-center justify-center  w-fit mb-4">
+              <img
+                src={`/imgs/${evaluation.teacher.image}`}
+                alt="student_image"
+                className="m max-w-[40px]"
+              />
+              <h1 className="font-bold text-xl">Teacher's infos </h1>
+            </div>
+            <div className="">
+              <span className="font-bold">Full name: </span>
+              {evaluation.teacher.name}
+            </div>
+            <div>
+              <span className="font-bold">email: </span>
+              {evaluation.teacher.email}
+            </div>
           </div>
         )}
         {!evaluation.teacher && (
@@ -41,7 +54,10 @@ const Evaluations = ({ evaluation }) => {
           </div>
         )}
         <div className="">
-          <h1 className="font-bold text-xl">His/Her reviews :</h1>
+          <h1 className="font-bold text-xl">
+
+            {!evaluation.teacher ? `His/Her reviews ` : `Your review`}
+          </h1>
           <div className="flex items-center">
             <span className="font-bold">Attitude in class</span>{" "}
             <StarRating value={evaluation.attitude} />

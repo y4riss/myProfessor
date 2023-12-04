@@ -49,7 +49,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/myevaluations" className="hover:text-primary">
-                My Evaluations
+                My Reviews
               </Link>
             </li>
             <li>
