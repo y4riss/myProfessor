@@ -5,9 +5,13 @@
 
 * {
   font-family: "Roboto", sans-serif;
-
 }
 
-header {
+header,
+.professors-div {
   background-color: #f4f8fd;
+}
+
+.dark-div {
+  background-color: #1f2937;
 }

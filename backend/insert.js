@@ -80,30 +80,39 @@ const evaluationsData = [
 const students = [
   {
     email: "john.doe@example.com",
+    name: "John Doe",
   },
   {
     email: "jane.smith@example.com",
+    name: "Jane Smith",
   },
   {
     email: "michael.johnson@example.com",
+    name: "Michael Johnson",
   },
   {
     email: "emily.davis@example.com",
+    name: "Emily Davis",
   },
   {
     email: "daniel.brown@example.com",
+    name: "Daniel Brown",
   },
   {
     email: "olivia.white@example.com",
+    name: "Olivia White",
   },
   {
     email: "christopher.lee@example.com",
+    name: "Christopher Lee",
   },
   {
     email: "sophia.wilson@example.com",
+    name: "Sophia Wilson",
   },
   {
     email: "william.adams@example.com",
+    name: "William Adams",
   },
 ];
 

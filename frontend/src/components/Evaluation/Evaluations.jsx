@@ -13,6 +13,11 @@ const Evaluations = ({ evaluation }) => {
             <p>Professor evaluated : {evaluation.teacher.name}</p>
           </div>
         )}
+        {!evaluation.teacher && (
+          <div>
+            <div>Student name : {evaluation.student.name}</div>
+          </div>
+        )}
         <p>
           Attitude in class: <StarRating value={evaluation.attitude} />
         </p>
@@ -50,7 +55,6 @@ const Evaluations = ({ evaluation }) => {
         </p>
         {/* Add other evaluation details as needed */}
         <p>Comment: {evaluation.comment}</p>
-        {!evaluation.teacher && <p>Student Email: {evaluation.studentEmail}</p>}
       </div>
     </div>
   );

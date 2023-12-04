@@ -25,7 +25,11 @@ app.get("/professors/:id", async (req, res) => {
         id: id,
       },
       include: {
-        evaluations: true,
+        evaluations: {
+          include: {
+            student: true,
+          },
+        },
       },
     });
     return res.json(professor);
@@ -46,28 +50,27 @@ app.post("/eval", async (req, res) => {
   }
 });
 
-app.get("/student/:email", async(req,res)=>{
-
+app.get("/student/:email", async (req, res) => {
   const email = req.params.email;
 
   try {
-      const student = await prisma.student.findUnique({
-        where : {
-          email: email
+    const student = await prisma.student.findUnique({
+      where: {
+        email: email,
+      },
+      include: {
+        evaluations: {
+          include: {
+            teacher: true,
+          },
         },
-        include : {
-          evaluations :{
-            include:{
-              teacher : true,
-            }
-          }
-        }
-      })
-      return res.json(student);
+      },
+    });
+    return res.json(student);
   } catch (error) {
-    return res.status(500).json(error)
+    return res.status(500).json(error);
   }
-})
+});
 app.post("/student", async (req, res) => {
   const body = req.body;
   try {
@@ -80,6 +83,7 @@ app.post("/student", async (req, res) => {
       student = await prisma.student.create({
         data: {
           email: body.email,
+          name: body.name,
         },
       });
     }

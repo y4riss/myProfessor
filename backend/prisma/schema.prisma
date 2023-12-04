@@ -8,9 +8,9 @@ datasource db {
 }
 
 model Student {
-  id    Int    @id @default(autoincrement())
-  email String @unique
-
+  id          Int          @id @default(autoincrement())
+  email       String       @unique
+  name        String
   evaluations Evaluation[]
 }
 
@@ -37,5 +37,5 @@ model Evaluation {
   studentEmail String
   teacherId    Int
   teacher      Teacher @relation(fields: [teacherId], references: [id])
-  Student      Student @relation(fields: [studentEmail], references: [email])
+  student      Student @relation(fields: [studentEmail], references: [email])
 }

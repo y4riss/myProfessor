@@ -5,6 +5,7 @@ import { userContext } from "../context/userProvider";
 import { useParams } from "react-router-dom";
 import EvaluationForm from "../components/Evaluation/EvaluationForm";
 import Evaluations from "../components/Evaluation/Evaluations";
+import Details from "../components/Professor/Details";
 
 const SingleProfessor = () => {
   const { user } = useContext(userContext);
@@ -27,31 +28,24 @@ const SingleProfessor = () => {
   return (
     <div>
       <Navbar />
+
       {professor && (
         <div>
-          <div className="max-w-xl mx-auto p-4">
-            <img src={`/imgs/${professor.image}`} alt="img" width={200} />
-            <h1 className="text-2xl font-bold mb-4">{professor.name}</h1>
-            <p className="mb-4">{professor.description}</p>
+          <Details professor={professor} />
+          <div>
+            <div className="">
+              {/* Evaluations */}
 
-            {/* professor Details */}
-            <div className="mb-6">
-              <h2 className="text-lg font-semibold mb-2">
-                Professor's Details
-              </h2>
-              <p>Email: {professor.email}</p>
-              <p>
-                Start Year: {new Date(professor.startYear).toLocaleDateString()}
-              </p>
-              {/* Add other professor details as needed */}
-            </div>
-
-            {/* Evaluations */}
-            <div className="mb-6">
-              <h2 className="text-lg font-semibold mb-2">Evaluations</h2>
-              {professor.evaluations.map((evaluation, index) => (
-                <Evaluations key={index} evaluation={evaluation} />
-              ))}
+              <div className="">
+                <div className="text-lg font-semibold  dark-div  w-full flex items-center justify-center p-10">
+                  <h1 className="font-bold text-6xl text-white ">
+                    Students Reviews
+                  </h1>
+                </div>
+                {professor.evaluations.map((evaluation, index) => (
+                  <Evaluations key={index} evaluation={evaluation} />
+                ))}
+              </div>
             </div>
           </div>
         </div>

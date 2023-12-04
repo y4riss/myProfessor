@@ -14,7 +14,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-white px-48 text-black p-6 text-xl font-thin flex justify-end">
+    // fixed top-0 w-full
+    <div className="bg-white px-48 text-black p-6 text-xl font-thin flex justify-end ">
       <div className="container flex items-center justify-between ">
         <div className="logo">
           <Link to="/" className="font-bold hover:text-primary">
@@ -24,14 +25,14 @@ const Navbar = () => {
         <nav className="flex items-center gap-10">
           <div className="">
             {user && (
-              <div className="flex items-center gap-10">
+              <div className="flex items-center gap-4">
                 <img
                   src={user.picture}
                   alt="User Profile"
-                  className="rounded-full w-8 h-8"
+                  className="rounded-full w-10"
                   referrerPolicy="no-referrer"
                 />
-                <p className="mr-2">{user.name}</p>
+                <p className="mr-2 font-bold">{user.name}</p>
               </div>
             )}
           </div>
