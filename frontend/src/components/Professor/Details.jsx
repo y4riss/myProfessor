@@ -22,7 +22,7 @@ const Details = ({ professor }) => {
   };
   const rating = calculateRating();
   return (
-    <header className="grid grid-cols-2 px-48 py-32 gap-10">
+    <header className="grid grid-cols-2 px-48 py-32 gap-10 custom-bg">
       <section className="">
         <div className="img rounded overflow-hidden w-full max-h-[550px]  flex justify-end">
           <img

@@ -27,8 +27,9 @@ const Login = ({ signInBtn }) => {
   }, [user]);
   return (
     <div className="flex h-screen items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md">
+      <div className="bg-white p-8 rounded shadow-md flex flex-col items-center justify-center">
         <h2 className="text-2xl font-bold mb-4">
+          <img src="/imgs/ensem.jpg" alt="ensem" />
           Sign in using your ENSEM's account
         </h2>
         <div

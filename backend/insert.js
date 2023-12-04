@@ -63,6 +63,13 @@ const teachersData = [
     description: "Chemistry Teacher",
     startYear: new Date("2018-04-18"),
   },
+  {
+    name: "Sana LAMTARA",
+    email: "s.lamtara@ensem.ac.ma",
+    description: "Professor, ELT Trainer & ICF Coach",
+    startYear: new Date("1999-01-01"),
+    image: "Sana.LAMTARA.jpg",
+  },
 ];
 const evaluationsData = [
   ...generateTeacherEvaluations(1, "alice.smith@example.com", 1),

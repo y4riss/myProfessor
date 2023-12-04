@@ -28,7 +28,6 @@ const MyEvaluations = () => {
   return (
     <div>
       <Navbar />
-      <h1>Your evaluations : </h1>
 
       {student && (
         <div className="">
