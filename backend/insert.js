@@ -81,38 +81,47 @@ const students = [
   {
     email: "john.doe@example.com",
     name: "John Doe",
+    image: "student.png",
   },
   {
     email: "jane.smith@example.com",
     name: "Jane Smith",
+    image: "student.png",
   },
   {
     email: "michael.johnson@example.com",
     name: "Michael Johnson",
+    image: "student.png",
   },
   {
     email: "emily.davis@example.com",
     name: "Emily Davis",
+    image: "student.png",
   },
   {
     email: "daniel.brown@example.com",
     name: "Daniel Brown",
+    image: "student.png",
   },
   {
     email: "olivia.white@example.com",
     name: "Olivia White",
+    image: "student.png",
   },
   {
     email: "christopher.lee@example.com",
     name: "Christopher Lee",
+    image: "student.png",
   },
   {
     email: "sophia.wilson@example.com",
     name: "Sophia Wilson",
+    image: "student.png",
   },
   {
     email: "william.adams@example.com",
     name: "William Adams",
+    image: "student.png",
   },
 ];
 

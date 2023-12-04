@@ -54,23 +54,22 @@ const EvaluationForm = ({ teacherId }) => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Evaluation Form</h1>
+    <div className="max-w-xl mx-auto p-4 border my-4 font-bold bg-white">
       <form onSubmit={handleSubmit}>
         {/* Star Ratings */}
         <div className="mb-6">
           {Object.keys(formValues).map((field, index) => (
-            <div
-              key={field}
-              className="mb-4  flex gap-2 items-baseline justify-between w-56 p-2"
-            >
-              <label className="block mb-2">
-                {field.charAt(0).toUpperCase() + field.slice(1)}
-              </label>
-              <StarSelector
-                index={index}
-                handleClick={(e) => handleClick(e, field, index)}
-              />
+            <div key={field}>
+              <div className="mb-4  flex gap-2 items-baseline justify-between w-56 p-2">
+                <label className="block mb-2">
+                  {field.charAt(0).toUpperCase() + field.slice(1)}
+                </label>
+                <StarSelector
+                  index={index}
+                  handleClick={(e) => handleClick(e, field, index)}
+                />
+              </div>
+             <hr/>
             </div>
           ))}
         </div>
@@ -80,13 +79,13 @@ const EvaluationForm = ({ teacherId }) => {
           <textarea
             value={comment}
             onChange={handleChange}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded input input-bordered"
           />
         </div>
 
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded"
+          className="btn btn-primary btn-lg"
         >
           Submit
         </button>

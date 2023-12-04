@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import EvaluationForm from "../components/Evaluation/EvaluationForm";
 import Evaluations from "../components/Evaluation/Evaluations";
 import Details from "../components/Professor/Details";
+import Footer from "../components/Footer/Footer";
 
 const SingleProfessor = () => {
   const { user } = useContext(userContext);
@@ -50,7 +51,15 @@ const SingleProfessor = () => {
           </div>
         </div>
       )}
-      <EvaluationForm teacherId={id} />
+      <div className="custom-bg">
+        <div className="text-lg font-semibold  dark-div  w-full flex items-center justify-center p-10">
+          <h1 className="font-bold text-6xl text-white ">
+            Submit your review now
+          </h1>
+        </div>
+        <EvaluationForm teacherId={id} />
+      </div>
+      <Footer/>
     </div>
   );
 };
