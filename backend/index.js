@@ -88,7 +88,6 @@ app.post("/student", async (req, res) => {
         },
       });
     }
-    console.log("student added : ", student);
     return res.json(student);
   } catch (error) {
     return res.status(500).json({ error });
