@@ -43,7 +43,11 @@ const SingleProfessor = () => {
                     Students Reviews
                   </h1>
                 </div>
-                {!professor.evaluations.length && <div className="h-screen flex align-middle items-center justify-center text-6xl">No reviews yet.</div>}
+                {!professor.evaluations.length && (
+                  <div className="h-screen flex align-middle items-center justify-center text-6xl">
+                    No reviews yet.
+                  </div>
+                )}
                 {professor.evaluations.map((evaluation, index) => (
                   <Evaluations key={index} evaluation={evaluation} />
                 ))}

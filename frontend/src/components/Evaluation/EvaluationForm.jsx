@@ -69,7 +69,7 @@ const EvaluationForm = ({ teacherId }) => {
                   handleClick={(e) => handleClick(e, field, index)}
                 />
               </div>
-             <hr/>
+              <hr />
             </div>
           ))}
         </div>
@@ -83,10 +83,7 @@ const EvaluationForm = ({ teacherId }) => {
           />
         </div>
 
-        <button
-          type="submit"
-          className="btn btn-primary btn-lg"
-        >
+        <button type="submit" className="btn btn-primary btn-lg">
           Submit
         </button>
       </form>
