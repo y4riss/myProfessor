@@ -52,7 +52,7 @@ const Login = () => {
       addStudent();
       navigate("/");
     }
-  }, [user]);
+  }, [user, google]);
   return (
     <div className="flex h-screen items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md flex flex-col items-center justify-center">
