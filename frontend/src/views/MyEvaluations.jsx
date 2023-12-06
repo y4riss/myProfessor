@@ -13,7 +13,9 @@ const MyEvaluations = () => {
   useEffect(() => {
     if (user) {
       const getStudent = async () => {
-        const res = await fetch(`http://localhost:3000/student/${user.email}`);
+        const res = await fetch(
+          `https://myprofessorapi.onrender.com/student/${user.email}`
+        );
         const json = await res.json();
         setStudent(json);
       };

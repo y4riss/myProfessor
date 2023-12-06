@@ -29,7 +29,7 @@ const EvaluationForm = ({ teacherId }) => {
       teacherId: teacherId,
     };
 
-    const res = await fetch("http://localhost:3000/eval", {
+    const res = await fetch("https://myprofessorapi.onrender.com/eval", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

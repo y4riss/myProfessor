@@ -11,7 +11,7 @@ const Login = ({ signInBtn }) => {
 
   useEffect(() => {
     const addStudent = async () => {
-      await fetch("http://localhost:3000/student", {
+      await fetch("https://myprofessorapi.onrender.com/student", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

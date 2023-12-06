@@ -15,7 +15,7 @@ const Professors = () => {
 
   useEffect(() => {
     const getProfessors = async () => {
-      const res = await fetch("http://localhost:3000/professors");
+      const res = await fetch("https://myprofessorapi.onrender.com/professors");
       const data = await res.json();
       setProfessors(data);
       setFilteredProfessors(data);
