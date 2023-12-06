@@ -10,7 +10,7 @@ const Navbar = () => {
   const handleSignOut = () => {
     setUser(null);
     localStorage.removeItem("user");
-    window.location.replace("/login");
+    window.location.replace("/");
   };
 
   return (
