@@ -1,15 +1,43 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { userContext } from "../context/userProvider";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
-const Login = ({ signInBtn }) => {
+const Login = () => {
   const { user } = useContext(userContext);
 
   const navigate = useNavigate();
+  const { setUser } = useContext(userContext);
+  const signInBtn = useRef();
+  const handleCallbackResponse = (response) => {
+    console.log(response);
+    const jwt = response.credential;
+    const data = jwtDecode(jwt);
+    localStorage.setItem("user", JSON.stringify(data));
+    setUser(data);
+  };
 
   useEffect(() => {
+    try {
+      /* global google */
+
+      if (google) {
+        google.accounts.id.initialize({
+          client_id: import.meta.env.VITE_CLIENT_ID,
+          callback: handleCallbackResponse,
+          hd: "ensem.ac.ma",
+        });
+
+        google.accounts.id.renderButton(signInBtn.current, {
+          theme: "filled_blue",
+          size: "large",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
     const addStudent = async () => {
       await fetch("https://myprofessorapi.onrender.com/student", {
         method: "POST",
