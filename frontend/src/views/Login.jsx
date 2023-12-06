@@ -20,9 +20,9 @@ const Login = () => {
   };
 
   useEffect(() => {
-    try {
-      /* global google */
+    /* global google */
 
+    try {
       if (google) {
         google.accounts.id.initialize({
           client_id: import.meta.env.VITE_CLIENT_ID,
