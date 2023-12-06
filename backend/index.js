@@ -71,6 +71,22 @@ app.get("/student/:email", async (req, res) => {
     return res.status(500).json(error);
   }
 });
+app.get("/student", async (req, res) => {
+  try {
+    const students = await prisma.student.findMany({
+      include: {
+        evaluations: {
+          include: {
+            teacher: true,
+          },
+        },
+      },
+    });
+    return res.json(students);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+});
 app.post("/student", async (req, res) => {
   const body = req.body;
   try {
