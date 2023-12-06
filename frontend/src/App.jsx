@@ -39,7 +39,7 @@ const App = () => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [google]);
   return (
     <div>
       <BrowserRouter>
