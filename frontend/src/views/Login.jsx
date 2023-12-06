@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { userContext } from "../context/userProvider";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
@@ -19,11 +20,14 @@ const Login = () => {
     setUser(data);
   };
 
+  const [gsi, setGsi] = useState({});
+
   useEffect(() => {
     /* global google */
 
     try {
       if (google) {
+        setGsi(google);
         google.accounts.id.initialize({
           client_id: import.meta.env.VITE_CLIENT_ID,
           callback: handleCallbackResponse,
@@ -36,7 +40,7 @@ const Login = () => {
         });
       }
     } catch (error) {
-      console.log(error);
+      console.log("error");
     }
     const addStudent = async () => {
       await fetch("https://myprofessorapi.onrender.com/student", {
@@ -52,7 +56,7 @@ const Login = () => {
       addStudent();
       navigate("/");
     }
-  }, [user, google]);
+  }, [user, gsi]);
   return (
     <div className="flex h-screen items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md flex flex-col items-center justify-center">
