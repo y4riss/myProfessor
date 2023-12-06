@@ -13,7 +13,7 @@ const App = () => {
   const { setUser } = useContext(userContext);
   const signInBtn = useRef();
   const handleCallbackResponse = (response) => {
-    console.log(response)
+    console.log(response);
     const jwt = response.credential;
     const data = jwtDecode(jwt);
     localStorage.setItem("user", JSON.stringify(data));
@@ -37,7 +37,7 @@ const App = () => {
         });
       }
     } catch (error) {
-      console.log("error");
+      console.log(error);
     }
   }, []);
   return (
